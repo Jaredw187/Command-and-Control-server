@@ -1,0 +1,23 @@
+Jared Walton
+Design Document
+
+The design decisions I made were:
+	Displaying time using the gettimeofday() function
+	Using linked lists to store the logs and actions
+	
+	Stand up server by:
+1) create socket
+2) initialize socket
+3) bind to socket
+4) accept connection from client
+5) read their message
+6) respond to it
+7) repeat from 4 until termination
+	
+	Join: I chose to implement join by traversing a linked list of all current active clients. If the client was found, an error message would be thrown. If not found, the new client would be appended to the active client lists. The a log message would be added to the log in either case.
+	Leave: I chose to implement leave by traversing a linked list of all current active nodes. If the client was found, the client would be removed from the linked list. If not found, an error message would be thrown. A log message would be added to the log in either case.
+	List: I chose to implement list by traversing a linked list to see if the requesting node was an active node. If the requesting client was in fact active, a list of all nodes would be output. The format of this was < client name, time passed since connection>. If the requesting client was inactive no error message would be thrown. Nothing would happen. If active, the log would be updated.
+	Log: I chose to format the log output but concatenating strings using plain text and variables to form a valid output string for the log. I achieved this by using the strcpy and strcat functions. The strings were then stored at the end of a linked list via a function, logger. Logger traversed to the end of the list and appended a new node containing the string.
+
+The data structures I used were two linked lists. One link lists stores the clients name, initial join time, the port, and the action they requested. The second linked list stored the messages for the log. 
+

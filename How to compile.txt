@@ -1,0 +1,14 @@
+How to compile
+
+Compile the agent:    gcc agent.c Ðo agent
+
+Compile the server: gcc server.c Ðo server
+
+Run the code: ./agent hostname Port action (./agent hercules.cs.txstate.edu 4000 JOIN)
+		./server Port (./server 4000)
+
+READ
+
+The initial command for the server is ignored. For example if you were to run Ò./agent hercules.cs.txstate.edu 4000 JOINÓ as the initial command nothing would happen. However if you run this command again it is executed. After the initial command is run, all other commands execute fine.
+
+ALSO the assignment documents  has #LEAVE or #JOIN as the final argument. This program does not accept #Õs in the arguments. You must execute the program by using the commands without preceding #Õs.
